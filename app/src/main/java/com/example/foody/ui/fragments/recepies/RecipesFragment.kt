@@ -33,14 +33,14 @@ class RecipesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_recipes, container, false)
 
-        setUpRecyclerView()
+        setupRecyclerView()
         requestApiData()
 
-        return view
+        return mView
     }
 
     private fun requestApiData() {
@@ -63,13 +63,10 @@ class RecipesFragment : Fragment() {
                     showShimmerEffect()
                 }
             }
-
-
         })
     }
 
-
-    private fun setUpRecyclerView() {
+    private fun setupRecyclerView() {
         mView.recycler_view.adapter = mAdapter
         mView.recycler_view.layoutManager = LinearLayoutManager(requireContext())
         showShimmerEffect()

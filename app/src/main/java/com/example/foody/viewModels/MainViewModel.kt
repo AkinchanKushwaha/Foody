@@ -4,19 +4,18 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.foody.data.Repository
 import com.example.foody.models.FoodRecipe
 import com.example.foody.util.NetworkResult
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import javax.inject.Inject
 
-@HiltViewModel
-class MainViewModel @Inject constructor(
+class MainViewModel @ViewModelInject constructor(
     private val repository: Repository,
     application: Application
 ) : AndroidViewModel(application) {
@@ -35,19 +34,20 @@ class MainViewModel @Inject constructor(
                 recipesResponse.value = handleFoodRecipesResponse(response)
             } catch (e: Exception) {
                 recipesResponse.value = NetworkResult.Error("Recipes not found.")
+                Log.e("MainViewModel ", e.toString())
             }
         } else {
             recipesResponse.value = NetworkResult.Error("No Internet Connection.")
         }
     }
 
-    private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {
+    private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe> {
         when {
             response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("Timeout")
             }
             response.code() == 402 -> {
-                return NetworkResult.Error("API Key Limited")
+                return NetworkResult.Error("API Key Limited.")
             }
             response.body()!!.results.isNullOrEmpty() -> {
                 return NetworkResult.Error("Recipes not found.")
@@ -75,6 +75,5 @@ class MainViewModel @Inject constructor(
             else -> false
         }
     }
-
 
 }
