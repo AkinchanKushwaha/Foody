@@ -32,4 +32,7 @@
     <string name="diet_type">Diet Type</string>
     <string name="apply">Apply</string>
     <string name="search">Search</string>
+    <string name="healthy">Healthy</string>
+    <string name="dairy_free">Dairy free</string>
+    <string name="cheap">Cheap</string>
 </resources>
