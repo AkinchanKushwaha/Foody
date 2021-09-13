@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import coil.load
 import com.example.foody.R
+import com.example.foody.bindingAdapters.RecipesRowBinding
 import com.example.foody.models.Result
 import kotlinx.android.synthetic.main.fragment_overview.view.*
 
@@ -28,7 +29,10 @@ class OverviewFragment : Fragment() {
         view.title_textView.text = myBundle?.title
         view.likes_textView.text = myBundle?.aggregateLikes.toString()
         view.time_textView.text = myBundle?.readyInMinutes.toString()
+
         view.summary_textView.text = myBundle?.summary
+
+        RecipesRowBinding.parseHtml(view.summary_textView, myBundle?.summary)
 
         if (myBundle?.vegetarian == true) {
             view.vegetarian_imageView.setColorFilter(
