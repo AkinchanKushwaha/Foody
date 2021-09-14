@@ -8,6 +8,7 @@ import com.example.foody.databinding.RecipesRowLayoutBinding
 import com.example.foody.models.FoodRecipe
 import com.example.foody.models.Result
 import com.example.foody.util.RecipesDiffUtil
+import java.util.Collections.emptyList
 
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
