@@ -1,7 +1,7 @@
 package com.example.foody.data
 
 import com.example.foody.data.database.RecipeDao
-import com.example.foody.data.database.RecipesEntity
+import com.example.foody.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -14,6 +14,6 @@ class LocalDataSource @Inject constructor(
     }
 
     suspend fun insertRecipes(recipesEntity: RecipesEntity) {
-        recipeDao.insetRecipes(recipesEntity)
+        recipeDao.insertRecipes(recipesEntity)
     }
 }

@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.foody.data.Repository
-import com.example.foody.data.database.RecipesEntity
+import com.example.foody.data.database.entities.RecipesEntity
 import com.example.foody.models.FoodRecipe
 import com.example.foody.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
