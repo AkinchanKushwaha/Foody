@@ -24,7 +24,7 @@ data class Result(
     @SerializedName("license")
     val license: String,
     @SerializedName("readyInMinutes")
-    val readyInMinutes: Int,
+    val readyInMinutes: Int?,
     @SerializedName("sourceName")
     val sourceName: String?,
     @SerializedName("sourceUrl")
