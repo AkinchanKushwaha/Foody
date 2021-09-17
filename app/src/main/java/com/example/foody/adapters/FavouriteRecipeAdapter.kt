@@ -16,7 +16,7 @@ class FavouriteRecipeAdapter : RecyclerView.Adapter<FavouriteRecipeAdapter.MyVie
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(favouritesEntity: FavouritesEntity) {
-            binding.favouritesEntity = favouritesEntity
+            binding.favoritesEntity = favouritesEntity
             binding.executePendingBindings()
         }
 
