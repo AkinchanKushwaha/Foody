@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="favouritesEntity"
+            name="favoritesEntity"
             type="com.example.foody.data.database.entities.FavouritesEntity" />
     </data>
 
