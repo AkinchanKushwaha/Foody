@@ -17,7 +17,7 @@
         android:layout_marginBottom="4dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/favorite_row_cardView"
+            android:id="@+id/favourite_row_cardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
@@ -39,6 +39,7 @@
                     android:layout_width="200dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
+                    loadImageFromUrl="@{favoritesEntity.result.image}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +71,7 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="@{favoritesEntity.result.summary}"
+                    parseHtml="@{favoritesEntity.result.summary}"
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_title_textView"
                     app:layout_constraintStart_toStartOf="@+id/favorite_title_textView"
