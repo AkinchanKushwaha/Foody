@@ -11,10 +11,13 @@ import com.example.foody.data.database.entities.FavouritesEntity
 import com.example.foody.databinding.FavouriteRecipesRowLayoutBinding
 import com.example.foody.ui.fragments.favourites.FavouriteRecipesFragmentDirections
 import com.example.foody.util.RecipesDiffUtil
+import com.example.foody.viewModels.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.favourite_recipes_row_layout.view.*
 
 class FavouriteRecipeAdapter(
-    private val requireActivity: FragmentActivity
+    private val requireActivity: FragmentActivity,
+    private val mainViewModel: MainViewModel
 ) : RecyclerView.Adapter<FavouriteRecipeAdapter.MyViewHolder>(), ActionMode.Callback {
 
     private var favouriteRecipes = emptyList<FavouritesEntity>()
@@ -22,6 +25,7 @@ class FavouriteRecipeAdapter(
     private var myViewHolders = arrayListOf<MyViewHolder>()
 
     private lateinit var mActionMode: ActionMode
+    private lateinit var rootView: View
 
     private var multiSelection = false
 
@@ -51,7 +55,7 @@ class FavouriteRecipeAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         myViewHolders.add(holder)
-
+        rootView = holder.itemView.rootView
 
         val currentRecipe = favouriteRecipes[position]
         holder.bind(currentRecipe)
@@ -138,7 +142,16 @@ class FavouriteRecipeAdapter(
         return true
     }
 
-    override fun onActionItemClicked(actionMode: ActionMode?, item: MenuItem?): Boolean {
+    override fun onActionItemClicked(actionMode: ActionMode?, menu: MenuItem?): Boolean {
+        if (menu?.itemId == R.id.delete_favourite_recipe_menu) {
+            selectedRecipes.forEach {
+                mainViewModel.deleteFavouriteRecipe(it)
+            }
+            showSnackBar("${selectedRecipes.size} Recipe/s removed.")
+            multiSelection = false
+            selectedRecipes.clear()
+            actionMode?.finish()
+        }
         return true
     }
 
@@ -162,6 +175,11 @@ class FavouriteRecipeAdapter(
         diffUtilResult.dispatchUpdatesTo(this)
     }
 
+    private fun showSnackBar(message: String) {
+        Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT)
+            .setAction("Okay") {}
+            .show()
+    }
 }
 
 
