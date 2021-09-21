@@ -180,6 +180,12 @@ class FavouriteRecipeAdapter(
             .setAction("Okay") {}
             .show()
     }
+
+    fun clearContextualActionMode() {
+        if (this::mActionMode.isInitialized) {
+            mActionMode.finish()
+        }
+    }
 }
 
 
