@@ -19,8 +19,12 @@ class FavouriteRecipeAdapter(
 
     private var favouriteRecipes = emptyList<FavouritesEntity>()
     private var selectedRecipes = arrayListOf<FavouritesEntity>()
-    private var multiSelection = false
     private var myViewHolders = arrayListOf<MyViewHolder>()
+
+    private lateinit var mActionMode: ActionMode
+
+    private var multiSelection = false
+
 
     class MyViewHolder(private val binding: FavouriteRecipesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -93,9 +97,11 @@ class FavouriteRecipeAdapter(
         if (selectedRecipes.contains(currentRecipe)) {
             selectedRecipes.remove(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor)
+            applyActionModeTitle()
         } else {
             selectedRecipes.add(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundLightColor, R.color.colorPrimary)
+            applyActionModeTitle()
         }
     }
 
@@ -107,8 +113,23 @@ class FavouriteRecipeAdapter(
             ContextCompat.getColor(requireActivity, strokeColor)
     }
 
+    private fun applyActionModeTitle() {
+        when (selectedRecipes.size) {
+            0 -> {
+                mActionMode.finish()
+            }
+            1 -> {
+                mActionMode.title = "${selectedRecipes.size} item selected"
+            }
+            else -> {
+                mActionMode.title = "${selectedRecipes.size} items selected"
+            }
+        }
+    }
+
     override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
         actionMode?.menuInflater?.inflate(R.menu.favourites_contexual_menu, menu)
+        mActionMode = actionMode!!
         applyStatusBarColor(R.color.contextualStatusBarColor)
         return true
     }
