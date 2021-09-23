@@ -6,9 +6,11 @@
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/drawable/favourite_recipes_row_layout.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/drawable/gradient_overlay.xml" value="0.14444444444444443" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/drawable/ic_error_placeholder.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/drawable/ic_splash_screen_light.xml" value="0.18981481481481483" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/activity_details.xml" value="0.1" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/activity_main.xml" value="0.2791666666666667" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/favourite_recipes_row_layout.xml" value="0.33" />
+        <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/fragment_food_joke.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/fragment_ingredients.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/fragment_instructions.xml" value="0.11722488038277512" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/fragment_overview.xml" value="0.33" />
@@ -18,6 +20,7 @@
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.13025210084033614" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/layout/recipes_row_layout.xml" value="0.4847715736040609" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/menu-v26/details_menu.xml" value="0.24814814814814815" />
+        <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/menu/favourite_recipes_menu.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/Akinchan/Desktop/Android Projects/Foody/app/src/main/res/menu/favourites_contexual_menu.xml" value="0.22685185185185186" />
       </map>
     </option>
