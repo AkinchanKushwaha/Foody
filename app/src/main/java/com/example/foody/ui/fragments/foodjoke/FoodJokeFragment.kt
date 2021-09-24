@@ -42,7 +42,7 @@ class FoodJokeFragment : Fragment() {
                 is NetworkResult.Success -> {
                     binding.foodJokeTextView.text = response.data?.text
                     if (response.data != null) {
-                        foodJoke = response.data.text
+                        foodJoke = response.data.text!!
                     }
                 }
                 is NetworkResult.Error -> {
@@ -68,7 +68,7 @@ class FoodJokeFragment : Fragment() {
             mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
                 if (!database.isNullOrEmpty()) {
                     binding.foodJokeTextView.text = database[0].foodJoke.text
-                    foodJoke = database[0].foodJoke.text
+                    foodJoke = database[0].foodJoke.text!!
                 }
             })
         }
